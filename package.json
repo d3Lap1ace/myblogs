@@ -1,6 +1,6 @@
 {
   "name": "myblogs",
-  "version": "1.4.58",
+  "version": "1.5.41",
   "description": "Personal Blog",
   "scripts": {
     "dev": "next dev",
