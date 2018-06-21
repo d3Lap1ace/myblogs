@@ -1,3 +1,3 @@
 # My Blog
 
-Last updated: 2018-06-20
+Last updated: 2018-06-21
