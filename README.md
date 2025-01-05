@@ -1,3 +1,3 @@
 # My Blog
 
-Last updated: 2023-01-01
+Last updated: 2025-01-05
