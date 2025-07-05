@@ -11,6 +11,18 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import { Header } from '@/components';
 
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'src/content/code');
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .map((file) => ({
+      slug: file.replace(/\.md$/, ''),
+    }));
+}
+export const dynamicParams = false;
+
+
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
