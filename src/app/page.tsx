@@ -16,7 +16,7 @@ export default function Home() {
         >
             <div className="relative z-10">
                 <Header />
-                <HeroSection />
+                {/* <HeroSection /> */}
                 <IntroCard />
             </div>
         </div>

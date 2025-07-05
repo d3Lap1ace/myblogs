@@ -1,4 +1,3 @@
-// app/code/page.tsx
 import { Header } from '@/components';
 import { getArticles, ArticleMeta } from '@/components/getArticles';
 
@@ -26,10 +25,9 @@ export default function CodePage() {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{article.title}</h3>
                 <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">{article.readTime}</span>
+                <div className="flex items-center justify-end">
                   <a href={`/code/${article.slug}`} className="text-blue-600 hover:text-blue-800 font-medium">
-                    Read More →
+                        More
                   </a>
                 </div>
               </div>
