@@ -1,5 +1,6 @@
 import { Header } from '@/components';
 import { getArticles, ArticleMeta } from '@/components/getArticles';
+import Link from 'next/link';
 
 export default function CodePage() {
   const articles: ArticleMeta[] = getArticles();
@@ -26,9 +27,9 @@ export default function CodePage() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{article.title}</h3>
                 <p className="text-gray-600 mb-4">{article.excerpt}</p>
                 <div className="flex items-center justify-end">
-                  <a href={`/code/${article.slug}`} className="text-blue-600 hover:text-blue-800 font-medium">
+                  <Link href={`/code/${article.slug}`} className="text-blue-600 hover:text-blue-800 font-medium">
                         More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
