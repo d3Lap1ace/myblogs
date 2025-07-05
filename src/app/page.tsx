@@ -1,5 +1,4 @@
 import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
 import IntroCard from '@/components/IntroCard';
 
 export default function Home() {

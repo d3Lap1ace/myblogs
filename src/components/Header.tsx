@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-pink-600 tracking-wider">
-                impower'blogs
+                {"impower'blogs"}
               </span>
             </Link>
           </div>
