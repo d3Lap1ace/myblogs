@@ -1,5 +1,21 @@
 import { Header } from '@/components';
 import { getArticles, ArticleMeta } from '@/components/getArticles';
+import fs from 'fs';
+import path from 'path';
+
+
+// ① 列出所有 slug，让导出阶段生成静态 HTML
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'src/content/code');
+  return fs
+    .readdirSync(dir)                  // ['docker.md', 'react.md', ...]
+    .filter((f) => f.endsWith('.md'))
+    .map((file) => ({
+      slug: file.replace(/\.md$/, ''), // { slug: 'docker' }
+    }));
+}
+export const dynamicParams = false;
+
 
 export default function CodePage() {
   const articles: ArticleMeta[] = getArticles();
