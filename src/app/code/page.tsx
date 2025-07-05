@@ -1,7 +1,5 @@
 import { Header } from '@/components';
 import { getArticles, ArticleMeta } from '@/components/getArticles';
-import fs from 'fs';
-import path from 'path';
 
 export default function CodePage() {
   const articles: ArticleMeta[] = getArticles();
