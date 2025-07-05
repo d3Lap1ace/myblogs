@@ -8,7 +8,7 @@ const IntroCard: React.FC = () => {
       <div className="text-center mb-4">
         <div className="rounded-full mx-auto mb-3 flex items-center justify-center">
           <img 
-            src = 'a2.png'
+            src = '/myblogs/a2.png'
             alt = 'dont touch me'
             className='w-20 h-20 rounded-full'
           />

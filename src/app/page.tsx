@@ -6,7 +6,7 @@ export default function Home() {
         <div
             className="min-h-screen relative"
             style={{
-                backgroundImage: 'url(/background.png)',
+                backgroundImage: 'url(/myblogs/background.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
