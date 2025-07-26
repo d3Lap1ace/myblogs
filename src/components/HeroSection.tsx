@@ -109,7 +109,7 @@ const HeroSection: React.FC = () => {
                 }}
               >
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{card.icon}</span>
+                  
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-pink-600 transition-colors duration-200">
                       {card.title}
