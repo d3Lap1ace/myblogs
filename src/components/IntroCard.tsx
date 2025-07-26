@@ -60,7 +60,7 @@ const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
       </div>
 
       {/* 总访问量 */}
-      <p className="text-sm text-gray-500 mt-4 ">总访问量：6238</p>
+      <p className="text-sm text-gray-500 mt-4 ">总访问量: 6238</p>
     </div>
   );
 };
