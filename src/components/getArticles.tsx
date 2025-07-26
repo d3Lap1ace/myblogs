@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Timestamp } from 'next/dist/server/lib/cache-handlers/types';
 
 export interface ArticleMeta {
   slug: string;
