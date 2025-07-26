@@ -16,10 +16,10 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About Me', href: '/about' },
     { name: 'Code', href: '/code' },
     { name: 'Game', href: '/game' },
     { name: 'Music', href: '/music' },
+    { name: 'About Me', href: '/about' },
   ];
 
   return (
