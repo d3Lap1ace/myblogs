@@ -9,22 +9,18 @@ const HeroSection: React.FC = () => {
     {
       title: 'About Me',
       description: 'Learn more about who I am and what I do',
-      icon: '👤'
     },
     {
       title: 'Code',
       description: 'Technical articles and coding tutorials',
-      icon: '💻'
     },
     {
       title: 'Game',
       description: 'Gaming experiences and reviews',
-      icon: '🎮'
     },
     {
       title: 'Music',
       description: 'Music recommendations and thoughts',
-      icon: '🎵'
     }
   ];
 
