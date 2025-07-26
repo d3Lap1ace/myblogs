@@ -34,7 +34,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContent);
+    const { content } = matter(fileContent);
     const processedContent = await unified()
         .use(remarkParse)
         .use(remarkGfm)
