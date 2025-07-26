@@ -2,11 +2,9 @@
 title: React 入门
 excerpt: 安装、配置与常见问题
 ---
-# React
+## 前置JavaScript基本用法
 
-# 前置JavaScript基本用法
-
-# Ajax
+### Ajax
 
 - **Ajax** 是一种在网页不重新加载的情况下，异步与服务器交换数据的技术。
 - 传统网页交互需要整页刷新，而 Ajax 可以在后台请求数据，更新网页局部内容，提升用户体验。

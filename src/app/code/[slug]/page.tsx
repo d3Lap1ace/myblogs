@@ -47,13 +47,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     console.log(contentHtml);
 
     return (
-        <div>
+        <div className="bg-gray-100">
             <div>
                 <Header />
             </div>
-            <div className="max-w-3xl mx-auto py-12 px-4">
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">{data.title}</h1>
-                <div className="markdown" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            <div className="w-full py-12 px-10">
+                {/* <h1 className="text-4xl md:text-6xl font-bold mb-4 ">{data.title}</h1> */}
+                <div className="markdown markdown-content bg-white" dangerouslySetInnerHTML={{ __html: contentHtml }} />
             </div>
         </div>
 

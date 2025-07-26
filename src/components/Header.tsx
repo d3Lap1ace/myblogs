@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 
 interface HeaderProps {
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ className = '' }) => {
+const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,11 +15,11 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   };
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Code', href: '/code' },
-    { name: 'Game', href: '/game' },
-    { name: 'Music', href: '/music' },
-    { name: 'About Me', href: '/about' },
+    { name: "Home", href: "/" },
+    { name: "Code", href: "/code" },
+    { name: "Game", href: "/game" },
+    { name: "Music", href: "/music" },
+    { name: "About Me", href: "/about" },
   ];
 
   return (
@@ -81,7 +81,6 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
