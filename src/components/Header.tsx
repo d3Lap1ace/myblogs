@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
         <div className="flex items-center h-16 justify-between">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-pink-600">
-            impower'blogs
+            impower&#39;blogs
           </Link>
 
           {/* Desktop Navigation */}
