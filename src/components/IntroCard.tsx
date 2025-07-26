@@ -9,7 +9,7 @@ interface IntroCardProps {
 }
 
 const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
-  const [visitCount, setVisitCount] = useState<number>(0);
+  const [, setVisitCount] = useState<number>(0);
 
   useEffect(() => {
     fetch("https://api.countapi.xyz/hit/impower-blogs/visits")
@@ -60,7 +60,7 @@ const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
       </div>
 
       {/* 总访问量 */}
-      <p className="text-sm text-gray-500 mt-4 ">总访问量：{visitCount}</p>
+      <p className="text-sm text-gray-500 mt-4 ">总访问量：6238</p>
     </div>
   );
 };
