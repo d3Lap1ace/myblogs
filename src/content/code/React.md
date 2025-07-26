@@ -1,6 +1,7 @@
 ---
 title: React 入门
 excerpt: 安装、配置与常见问题
+date: "2025-07-28"
 ---
 ## 前置JavaScript基本用法
 

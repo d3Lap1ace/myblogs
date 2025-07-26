@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { Timestamp } from 'next/dist/server/lib/cache-handlers/types';
 
 export interface ArticleMeta {
   slug: string;
@@ -10,6 +11,7 @@ export interface ArticleMeta {
   color: string;
   excerpt: string;
   readTime: string;
+  date: string;
 }
 
 export function getArticles(): ArticleMeta[] {
@@ -29,6 +31,8 @@ export function getArticles(): ArticleMeta[] {
       color: data.color,
       excerpt: data.excerpt,
       readTime: data.readTime,
+      date: data.date,
     };
-  });
+  })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }

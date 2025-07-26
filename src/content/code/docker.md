@@ -4,6 +4,7 @@ excerpt: 安装、配置与常见问题
 category: DevOps
 icon: 🐳
 color: blue
+date: "2025-07-28"
 ---
 # Docker
 
