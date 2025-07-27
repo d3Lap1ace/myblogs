@@ -11,7 +11,7 @@ export default function CodePage() {
     <div
       className="min-h-screen relative"
       style={{
-        backgroundImage: "url(/myblogs/am_background.png)",
+        backgroundImage: "url(/myblogs/background.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
