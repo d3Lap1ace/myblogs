@@ -1,4 +1,3 @@
-// app/code/[slug]/page.tsx
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -22,13 +21,8 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-type Props = {
-  params: { slug: string };
-  searchParams?: Record<string, string | string[]>;
-};
-
-export default async function ArticlePage({ params }: Props) {
-  const { slug } = params;
+export default async function ArticlePage(props: { params: { slug: string } }) {
+  const { slug } = props.params;
   const filePath = path.join(process.cwd(), "src/content/code", `${slug}.md`);
 
   if (!fs.existsSync(filePath)) notFound();
