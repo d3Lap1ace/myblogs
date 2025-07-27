@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export default async function ArticlePage({ params, }: {params:{ slug: string };searchParams:Record<string, string | string[]>;}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function ArticlePage({ params }: any) {
   const { slug } = params;
   const filePath = path.join(process.cwd(), "src/content/code", `${slug}.md`);
 
