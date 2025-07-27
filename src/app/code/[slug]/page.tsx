@@ -40,7 +40,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
   const contentHtml = processedContent.toString();
 
-  // 格式化发布时间和读取时长显示
+
   const dt = new Date(data.date);
   const formattedDate = dt.toLocaleString("zh-CN", {
     year: "numeric",
