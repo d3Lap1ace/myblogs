@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export default async function ArticlePage({ params,searchParams, }: {params:{ slug: string };searchParams:Record<string, string | string[]>;}) {
+export default async function ArticlePage({ params, }: {params:{ slug: string };searchParams:Record<string, string | string[]>;}) {
   const { slug } = params;
   const filePath = path.join(process.cwd(), "src/content/code", `${slug}.md`);
 
