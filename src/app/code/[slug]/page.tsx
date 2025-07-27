@@ -21,8 +21,8 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export default async function ArticlePage(props: { params: { slug: string } }) {
-  const { slug } = props.params;
+export default async function ArticlePage({ params }: any) {
+  const { slug } = params;
   const filePath = path.join(process.cwd(), "src/content/code", `${slug}.md`);
 
   if (!fs.existsSync(filePath)) notFound();
