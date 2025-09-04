@@ -4,18 +4,13 @@ import { getArticles, ArticleMeta } from "@/components/getArticles";
 
 export default function CodePage() {
   // 在这里安全地使用 fs、gray-matter
-  const latestArticles: ArticleMeta[] = getArticles()
-    .slice(0, 3);
+  const latestArticles: ArticleMeta[] = getArticles().slice(0, 3);
 
   return (
     <div
       className="min-h-screen relative"
       style={{
-        backgroundImage: "url(/myblogs/background.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        backgroundColor: "#f7f9fc",
       }}
     >
       <div className="relative z-10">

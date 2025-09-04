@@ -23,29 +23,34 @@ const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
   }, []);
 
   return (
-    <div className="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 max-w-sm ml-35 mt-35">
-      {/* 头像和基本信息 */}
-      <div className="text-center mb-4">
+    <div className="flex flex-col items-center justify-center border border-gray-900 p-3 ">
+      <div className="w-100 p-10 text-center border border-gray-900" >
         <img
           src="/myblogs/a2.png"
           alt="Portrait of Lucas Marinotta"
-          className="w-20 h-20 rounded-full mx-auto mb-3"
+          className="w-40 h-40 rounded-full mx-auto mb-5"
         />
-        <h3 className="text-xl font-bold text-gray-900 mb-1">
+        <h1 className="text-xl font-bold text-gray-900 mb-3">
           Lucas Marinotta
-        </h3>
-        <p className="text-pink-600 font-medium text-sm mb-2">
-          Full Stack Developer
+        </h1>
+        <p className="text-l text-pink-600 font-medium mb-3">
+          Cloud Computing Engineer
         </p>
-        <p className="text-gray-600 text-base leading-relaxed mb-4">
+        <p className="text-gray-600 text-m leading-relaxed mb-3">
           you know that crazy person enjoy the world first.
+        </p>
+        <p>
+          who loves gaming, especially challenging AAA titles like Dark Souls
+          and action games. I enjoy pop and rock music, from Lady Gaga to
+          energetic tunes, and I m passionate about art and creativity, which
+          inspire my imagination and approach to both life and work.
         </p>
       </div>
 
       {/* 最新动态 */}
-      <div>
-        <h4 className="text-lg font-semibold text-gray-800 mb-2">最新动态</h4>
-        <ul className="list-disc list-inside space-y-1">
+      <div className="w-full max-w-xl">
+        <h1 className="text-xl font-semibold text-gray-900 mb-5">最新动态</h1>
+        <ul className="list-disc list-inside space-y-1 text-left">
           {latestArticles.map((article) => (
             <li key={article.slug}>
               <Link
@@ -58,9 +63,6 @@ const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
           ))}
         </ul>
       </div>
-
-      {/* 总访问量 */}
-      {/* <p className="text-sm text-gray-500 mt-4 ">总访问量: 6238</p> */}
     </div>
   );
 };
