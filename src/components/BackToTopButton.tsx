@@ -7,11 +7,10 @@ export default function BackToTopButton() {
 
   useEffect(() => {
     const onScroll = () => {
-      // 滚动超过 300px 时显示
       setVisible(window.scrollY > 300);
     };
     window.addEventListener('scroll', onScroll);
-    // 初始检查一次
+
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);

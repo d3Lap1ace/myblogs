@@ -12,17 +12,19 @@ import { Header } from "@/components";
 import BackToTopButton from "@/components/BackToTopButton";
 
 export async function generateStaticParams() {
-  const dir = path.join(process.cwd(), "src/content/code");
+  const dir = path.join(process.cwd(), "src/content/life");
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
     .map((file) => ({ slug: file.replace(/\.md$/, "") }));
 }
 
+export const dynamicParams = false;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ArticlePage({ params }: any) {
   const { slug } = params;
-  const filePath = path.join(process.cwd(), "src/content/code", `${slug}.md`);
+  const filePath = path.join(process.cwd(), "src/content/life", `${slug}.md`);
 
   if (!fs.existsSync(filePath)) notFound();
 
@@ -56,7 +58,7 @@ export default async function ArticlePage({ params }: any) {
 
         <h1 className="text-4xl text-gray-900 font-bold mb-2">{data.title}</h1>
 
-        <div className="text-gray-900 mb-6">
+        <div className="flex flex-wrap items-center text-gray-900 text-sm mb-8 space-x-4">
           <time>{formattedDate}</time>
         </div>
 

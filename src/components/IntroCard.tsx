@@ -1,30 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import type { ArticleMeta } from "@/components/getArticles";
+import React from "react";
+import { FaGithub, FaEnvelope } from "react-icons/fa";
 
-interface IntroCardProps {
-  latestArticles: ArticleMeta[];
-}
-
-const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
-  const [, setVisitCount] = useState<number>(0);
-
-  useEffect(() => {
-    fetch("https://api.countapi.xyz/hit/impower-blogs/visits")
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.value === "number") {
-          setVisitCount(data.value);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
+const IntroCard: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center border border-gray-900 p-3 ">
-      <div className="w-100 p-10 text-center border border-gray-900" >
+    <div className="w-full border-gray-900 p-6">
+      <div className="text-center">
         <img
           src="/myblogs/a2.png"
           alt="Portrait of Lucas Marinotta"
@@ -39,29 +21,33 @@ const IntroCard: React.FC<IntroCardProps> = ({ latestArticles }) => {
         <p className="text-gray-600 text-m leading-relaxed mb-3">
           you know that crazy person enjoy the world first.
         </p>
-        <p>
+        <p className="text-gray-600 text-m leading-relaxed mb-3 max-w-sm mx-auto">
           who loves gaming, especially challenging AAA titles like Dark Souls
-          and action games. I enjoy pop and rock music, from Lady Gaga to
-          energetic tunes, and I m passionate about art and creativity, which
-          inspire my imagination and approach to both life and work.
+          and action games. I enjoy pop and rock music and passionate about art
+          and creativity, which inspire my imagination and approach to both life
+          and work.
         </p>
       </div>
 
-      {/* 最新动态 */}
-      <div className="w-full max-w-xl">
-        <h1 className="text-xl font-semibold text-gray-900 mb-5">最新动态</h1>
-        <ul className="list-disc list-inside space-y-1 text-left">
-          {latestArticles.map((article) => (
-            <li key={article.slug}>
-              <Link
-                href={`/code/${article.slug}`}
-                className="text-blue-600 hover:underline"
-              >
-                {article.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {/* Contact information */}
+      <div className="mt-6 border-t border-gray-300 pt-4 text-left">
+        <h2 className="text-lg font-semibold text-gray-900 mb-3">Contact</h2>
+        <a
+          href="https://github.com/d3lap1ace"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center text-gray-700 hover:text-blue-600 font-medium mb-2"
+        >
+          <FaGithub className="w-5 h-5 mr-2" />
+          GitHub
+        </a>
+        <a
+          href="mailto:reald3lap1ace@gmail.com"
+          className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+        >
+          <FaEnvelope className="w-5 h-5 mr-2" />
+          Gmail
+        </a>
       </div>
     </div>
   );

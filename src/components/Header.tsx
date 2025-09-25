@@ -18,7 +18,6 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
     { name: "Home", href: "/" },
     { name: "Code", href: "/code" },
     { name: "Life", href: "/life" },
-    { name: "About Me", href: "/about" },
   ];
 
   return (

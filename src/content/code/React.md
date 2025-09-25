@@ -1,7 +1,7 @@
 ---
 title: React 入门
 excerpt: 安装、配置与常见问题
-date: "2025-07-30T14:30:00"
+date: "2025-07-30"
 ---
 ## 前置JavaScript基本用法
 
