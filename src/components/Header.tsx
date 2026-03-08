@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   className?: string;
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname(); // 获取当前路径
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,16 +32,26 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="flex space-x-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-pink-600 hover:text-pink-800 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
-            ))}
+          <nav className="hidden md:flex space-x-6">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`relative px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200 ${
+                    isActive
+                      ? "text-pink-800"
+                      : "text-pink-600 hover:text-pink-800"
+                  }`}
+                >
+                  {item.name}
+                  {isActive && (
+                    <span className="absolute left-0 -bottom-4   w-full h-0.5 bg-blue-600"></span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile menu button */}
@@ -75,19 +87,27 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
           </div>
         </div>
 
+        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-pink-600 hover:text-pink-800 block px-3 py-2 rounded-md text-base font-medium uppercase tracking-wide transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-3 py-2 rounded-md text-base font-medium uppercase tracking-wide transition-colors duration-200 ${
+                      isActive
+                        ? "text-pink-800 border-b-2 border-blue-500"
+                        : "text-pink-600 hover:text-pink-800"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
