@@ -54,9 +54,11 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
             })}
             {/* RSS Feed */}
             <a
-              href="/rss.xml"
+              href="https://d3lap1ace.github.io/myblogs/rss.xml"
               className="text-pink-600 hover:text-pink-800 transition-colors"
               aria-label="RSS Feed"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <svg
                 className="w-5 h-5"
@@ -124,9 +126,11 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               })}
               {/* RSS Feed */}
               <a
-                href="/rss.xml"
+                href="https://d3lap1ace.github.io/myblogs/rss.xml"
                 className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium uppercase tracking-wide text-pink-600 hover:text-pink-800 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   className="w-5 h-5"
