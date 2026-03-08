@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack & open http://localhost:3000/myblogs",
-    "build": "next build",
+    "build": "node scripts/generate-rss.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-rss": "node scripts/generate-rss.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "feed": "^5.2.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "next": "15.3.4",

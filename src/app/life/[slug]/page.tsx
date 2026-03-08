@@ -42,13 +42,10 @@ export default async function ArticlePage({ params }: any) {
 
 
   const dt = new Date(data.date);
-  const formattedDate = dt.toLocaleString("zh-CN", {
+  const formattedDate = dt.toLocaleDateString("zh-CN", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
   });
 
   return (

@@ -6,7 +6,10 @@ const nextConfig: NextConfig = {
     output: 'export',
     basePath: '/myblogs',
     assetPrefix: '/myblogs/',
-    images: { unoptimized: true },
+    images: {
+        unoptimized: true,
+        remotePatterns: [],
+    },
 };
 
 export default nextConfig;

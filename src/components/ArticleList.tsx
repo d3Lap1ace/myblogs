@@ -1,25 +1,20 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import type { ArticleMeta } from "@/components/getArticles";
 
-interface LatestArticlesCardProps {
-  latestArticles: ArticleMeta[];
+interface ArticleListProps {
+  articles: ArticleMeta[];
 }
 
-const LatestArticlesCard: React.FC<LatestArticlesCardProps> = ({
-  latestArticles,
-}) => {
-  const sortedArticles = [...latestArticles].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
+export default function ArticleList({ articles }: ArticleListProps) {
   return (
     <div className="p-6">
-      <h1 className="text-xl font-semibold text-gray-900 mb-5">Posts</h1>
+      <h1 className="text-xl font-semibold text-gray-900 mb-5">
+        Posts
+      </h1>
       <div className="w-full grid gap-4 md:grid-cols-1">
-        {sortedArticles.map((article) => (
+        {articles.map((article) => (
           <div
             key={`${article.source}-${article.slug}`}
             className="p-4"
@@ -37,6 +32,4 @@ const LatestArticlesCard: React.FC<LatestArticlesCardProps> = ({
       </div>
     </div>
   );
-};
-
-export default LatestArticlesCard;
+}
