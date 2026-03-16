@@ -18,8 +18,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Code", href: "/code" },
-    { name: "Life", href: "/life" },
+    { name: "Posts", href: "/life" },
   ];
 
   return (
