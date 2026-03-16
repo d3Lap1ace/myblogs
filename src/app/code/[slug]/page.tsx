@@ -13,6 +13,7 @@ import BackToTopButton from "@/components/BackToTopButton";
 
 export async function generateStaticParams() {
   const dir = path.join(process.cwd(), "src/content/code");
+  if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
