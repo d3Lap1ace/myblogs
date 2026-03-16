@@ -26,6 +26,7 @@ function getArticlesFromDir(dirName: string): ArticleMeta[] {
       const fileContent = fs.readFileSync(filePath, "utf8");
       const { data } = matter(fileContent);
 
+      const dateValue = data.date instanceof Date ? data.date.toISOString() : data.date;
       return {
         slug: filename.replace(/\.md$/, ""),
         title: data.title,
@@ -34,7 +35,7 @@ function getArticlesFromDir(dirName: string): ArticleMeta[] {
         color: data.color,
         excerpt: data.excerpt,
         readTime: data.readTime,
-        date: data.date,
+        date: dateValue,
         source: dirName,
       };
     });
