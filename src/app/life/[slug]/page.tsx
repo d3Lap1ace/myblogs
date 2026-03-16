@@ -12,7 +12,7 @@ import { Header } from "@/components";
 import BackToTopButton from "@/components/BackToTopButton";
 
 export async function generateStaticParams() {
-  const dir = path.join(process.cwd(), "src/content/life");
+  const dir = path.join(process.cwd(), "src/content/posts");
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
@@ -24,7 +24,7 @@ export const dynamicParams = false;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ArticlePage({ params }: any) {
   const { slug } = params;
-  const filePath = path.join(process.cwd(), "src/content/life", `${slug}.md`);
+  const filePath = path.join(process.cwd(), "src/content/posts", `${slug}.md`);
 
   if (!fs.existsSync(filePath)) notFound();
 

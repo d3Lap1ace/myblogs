@@ -41,7 +41,7 @@ function getArticlesFromDir(dirName: string): ArticleMeta[] {
 }
 
 export function getArticles(): ArticleMeta[] {
-  const sources = ["code", "life"];
+  const sources = ["code", "posts"];
   const allArticles = sources.flatMap((src) => getArticlesFromDir(src));
 
   return allArticles.sort(

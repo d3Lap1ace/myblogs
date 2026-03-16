@@ -4,7 +4,7 @@ import ArticleList from "@/components/ArticleList";
 
 export default function LifePage() {
   const articles: ArticleMeta[] = getArticles().filter(
-    (a) => a.source === "life"
+    (a) => a.source === "posts"
   );
 
   const sortedArticles = articles.sort(
