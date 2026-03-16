@@ -7,6 +7,11 @@ interface ArticleListProps {
   articles: ArticleMeta[];
 }
 
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toISOString().split('T')[0];
+}
+
 export default function ArticleList({ articles }: ArticleListProps) {
   return (
     <div className="p-6">
@@ -20,9 +25,9 @@ export default function ArticleList({ articles }: ArticleListProps) {
             className="p-4"
           >
             {article.date && (
-              <p className="text-gray-400 text-sm mb-2">{article.date}</p>
+              <p className="text-gray-400 text-sm mb-2">{formatDate(article.date)}</p>
             )}
-            <Link href={`/${article.source}/${article.slug}`}>
+            <Link href={`/life/${article.slug}`}>
               <h2 className="text-xl font-semibold text-gray-900 hover:text-pink-600 transition-colors">
                 {article.title}
               </h2>
