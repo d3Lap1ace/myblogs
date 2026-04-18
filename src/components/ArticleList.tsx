@@ -1,40 +1,66 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import type { ArticleMeta } from "@/components/getArticles";
 
 interface ArticleListProps {
   articles: ArticleMeta[];
+  pageSize?: number;
 }
 
 function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
-  return date.toISOString().split('T')[0];
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
 }
 
-export default function ArticleList({ articles }: ArticleListProps) {
+export default function ArticleList({ articles, pageSize = 10 }: ArticleListProps) {
+  const [visible, setVisible] = useState(pageSize);
+  const shown = articles.slice(0, visible);
+  const hasMore = visible < articles.length;
+
   return (
-    <div className="p-6">
-      <h1 className="text-xl font-semibold text-gray-900 mb-5">
-        Posts
-      </h1>
-      <div className="w-full grid gap-4 md:grid-cols-1">
-        {articles.map((article) => (
-          <div
-            key={`${article.source}-${article.slug}`}
-            className="p-4"
-          >
-            {article.date && (
-              <p className="text-gray-400 text-sm mb-2">{formatDate(article.date)}</p>
-            )}
-            <Link href={`/life/${article.slug}`}>
-              <h2 className="text-xl font-semibold text-gray-900 hover:text-pink-600 transition-colors">
+    <section>
+      <ul className="divide-y divide-gray-200">
+        {shown.map((article) => (
+          <li key={article.slug} className="group">
+            <Link href={`/posts/${article.slug}`} className="block py-5">
+              <div className="flex items-center justify-between mb-2 text-xs uppercase tracking-[0.15em] font-medium">
+                {article.shortName ? (
+                  <span className="font-display text-pink-600">
+                    {article.shortName}
+                  </span>
+                ) : (
+                  <span />
+                )}
+                {article.date && (
+                  <time className="font-display text-gray-400 shrink-0">
+                    {formatDate(article.date)}
+                  </time>
+                )}
+              </div>
+              <h3 className="text-xl sm:text-2xl font-medium text-gray-900 leading-snug group-hover:text-pink-600 transition-colors">
                 {article.title}
-              </h2>
+              </h3>
             </Link>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+
+      {hasMore && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setVisible((v) => v + pageSize)}
+            className="font-display text-sm tracking-[0.15em] uppercase text-pink-600 hover:text-pink-800 border border-pink-300 hover:border-pink-600 rounded px-6 py-2 transition-colors"
+          >
+            $ load --more
+          </button>
+        </div>
+      )}
+    </section>
   );
 }

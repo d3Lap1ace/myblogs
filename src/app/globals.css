@@ -10,6 +10,15 @@
     --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 }
 
+@theme inline {
+    --font-display: var(--font-jetbrains-mono);
+    --font-title: var(--font-noto-sans-sc);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-noto-sans-sc), var(--font-sans), sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
@@ -33,6 +42,33 @@ body {
 .markdown-content h1 { font-size: clamp(2rem, 5vw, 2.5rem);font-weight: bold; margin-block: 1rem 1rem; }
 .markdown-content h2 { font-size: clamp(1.75rem, 4vw, 2rem);font-weight: bold; margin-block: 1rem 0.75rem; }
 .markdown-content h3 { font-size: clamp(1.5rem, 3vw, 1.5rem);font-weight: bold;  margin-block: 1rem 0.75rem; }
+
+.markdown-content p { margin-block: 1rem; }
+
+.markdown-content ul,
+.markdown-content ol { padding-left: 1.5rem; margin-block: 1rem; }
+.markdown-content ul { list-style: disc; }
+.markdown-content ol { list-style: decimal; }
+.markdown-content li { margin-block: 0.35rem; }
+.markdown-content li::marker { color: #db2777; }
+.markdown-content li > ul,
+.markdown-content li > ol { margin-block: 0.35rem; }
+
+.markdown-content a { color: #db2777; text-decoration: underline; text-underline-offset: 3px; }
+.markdown-content a:hover { color: #9d174d; }
+
+.markdown-content strong { font-weight: 700; }
+.markdown-content em { font-style: italic; }
+
+.markdown-content blockquote {
+    border-left: 3px solid #f9a8d4;
+    padding-left: 1rem;
+    color: #4b5563;
+    margin-block: 1rem;
+    font-style: italic;
+}
+
+.markdown-content hr { border: 0; border-top: 1px solid #e5e7eb; margin-block: 2rem; }
 
 .markdown-content table {
     width: 100%;

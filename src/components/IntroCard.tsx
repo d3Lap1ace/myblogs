@@ -1,58 +1,38 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { FaGithub, FaEnvelope } from "react-icons/fa";
 
-const IntroCard: React.FC = () => {
+export default function IntroCard() {
   return (
-    <div className="w-full p-6">
-      <div className="text-center">
+    <article className="w-full">
+      <div className="flex flex-col sm:flex-row items-center sm:items-end gap-8 mb-12">
         <Image
           src="/myblogs/a2.png"
-          alt="Portrait of Lucas Marinotta"
+          alt="Lucas Marinotta"
           width={160}
           height={160}
-          className="w-40 h-40 rounded-full mx-auto mb-5"
+          className="w-32 h-32 sm:w-40 sm:h-40 rounded-full ring-4 ring-white shadow-lg"
         />
-        <h1 className="text-xl font-bold text-gray-900 mb-3">
-          Lucas Marinotta
-        </h1>
-        <p className="text-l text-pink-600 font-medium mb-3">
-          Software Engineer
-        </p>
-        <p className="text-gray-600 text-m leading-relaxed mb-3 max-w-sm mx-auto">
-          My name is Lucas Marinotta. I&apos;m 26 years old, born in China, and living in Manhattan, New York. And I believe that men and women deserve the free and equal right to choose how they live. Whether you are Asian, White, or Black; whether you are gay, straight, bi, or transgender; whether you are Catholic, Muslim, or Buddhist, your God is right here, your God is right there, no matter who you are.
+        <div className="text-center sm:text-left">
+          <p className="font-display text-xs uppercase tracking-[0.2em] text-pink-600 font-medium mb-2">
+            ~/about
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-none">
+            Lucas Marinotta
+          </h1>
+          <p className="mt-3 text-lg text-gray-600">Software Engineer</p>
+        </div>
+      </div>
+
+      <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+        <p>
+          My name is Lucas Marinotta. I&apos;m 26 years old, born in China, and
+          living in Manhattan, New York. And I believe that men and women
+          deserve the free and equal right to choose how they live. Whether you
+          are Asian, White, or Black; whether you are gay, straight, bi, or
+          transgender; whether you are Catholic, Muslim, or Buddhist, your God
+          is right here, your God is right there, no matter who you are.
         </p>
       </div>
 
-      {/* Contact information */}
-      <div className="mt-6 p-4 text-left">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">Contact</h2>
-        <div className="flex items-center text-gray-700 font-medium mb-2">
-          <FaGithub className="w-5 h-5 mr-2 text-gray-700" />
-          <a
-            href="https://github.com/d3lap1ace"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 hover:text-blue-600 cursor-pointer"
-          >
-            GitHub
-          </a>
-        </div>
-
-        <div className="flex items-center text-gray-700 font-medium">
-          <FaEnvelope className="w-5 h-5 mr-2 text-gray-700" />
-          <a
-            href="mailto:reald3lap1ace@gmail.com"
-            className="text-gray-700 hover:text-blue-600 cursor-pointer"
-          >
-            Gmail
-          </a>
-        </div>
-      </div>
-    </div>
+    </article>
   );
-};
-
-export default IntroCard;
+}

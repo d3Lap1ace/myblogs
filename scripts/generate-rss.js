@@ -3,31 +3,26 @@ const path = require("path");
 const matter = require("gray-matter");
 
 function getPosts() {
-  const posts = [];
-  const categories = ["code", "life"];
+  const dir = path.join(process.cwd(), "src/content/posts");
+  if (!fs.existsSync(dir)) return [];
 
-  for (const category of categories) {
-    const dir = path.join(process.cwd(), "src/content", category);
-    if (!fs.existsSync(dir)) continue;
-
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
-
-    for (const file of files) {
+  const posts = fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".md"))
+    .map((file) => {
       const filePath = path.join(dir, file);
-      const fileContent = fs.readFileSync(filePath, "utf8");
-      const { data, content } = matter(fileContent);
-
-      posts.push({
+      const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+      return {
         title: data.title || file.replace(".md", ""),
         date: data.date || fs.statSync(filePath).mtime.toISOString(),
         slug: file.replace(".md", ""),
-        category,
         excerpt: data.excerpt || content.slice(0, 200) + "...",
-      });
-    }
-  }
+      };
+    });
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 function generateRSS(posts) {
@@ -47,10 +42,10 @@ ${posts
   .map(
     (post) => `    <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>${siteUrl}/${post.category}/${post.slug}</link>
+      <link>${siteUrl}/posts/${post.slug}</link>
       <description><![CDATA[${post.excerpt || ""}]]></description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <guid>${siteUrl}/${post.category}/${post.slug}</guid>
+      <guid>${siteUrl}/posts/${post.slug}</guid>
     </item>`
   )
   .join("\n")}
@@ -58,17 +53,14 @@ ${posts
 </rss>`;
 }
 
-// Generate RSS
 const posts = getPosts();
 const rss = generateRSS(posts);
 
-// Ensure public directory exists
 const publicDir = path.join(process.cwd(), "public");
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
 
-// Write RSS file
 fs.writeFileSync(path.join(publicDir, "rss.xml"), rss);
 
 console.log("✅ RSS feed generated at public/rss.xml");

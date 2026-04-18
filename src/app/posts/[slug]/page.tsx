@@ -8,7 +8,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
-import { Header } from "@/components";
+import Header from "@/components/Header";
 import BackToTopButton from "@/components/BackToTopButton";
 
 export async function generateStaticParams() {
@@ -21,9 +21,12 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function ArticlePage({ params }: any) {
-  const { slug } = params;
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const filePath = path.join(process.cwd(), "src/content/posts", `${slug}.md`);
 
   if (!fs.existsSync(filePath)) notFound();
@@ -40,31 +43,32 @@ export default async function ArticlePage({ params }: any) {
 
   const contentHtml = processedContent.toString();
 
-
-  const dt = new Date(data.date);
-  const formattedDate = dt.toLocaleDateString("zh-CN", {
+  const formattedDate = new Date(data.date).toLocaleDateString("zh-CN", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
   });
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-[#f7f9fc] min-h-screen">
       <Header />
-      <main className="max-w-3xl mx-auto py-12 px-4">
-
-        <h1 className="text-4xl text-gray-900 font-bold mb-2">{data.title}</h1>
-
-        <div className="flex flex-wrap items-center text-gray-900 text-sm mb-8 space-x-4">
-          <time>{formattedDate}</time>
-        </div>
-
+      <main className="max-w-3xl mx-auto pt-16 sm:pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <header className="mb-12">
+          <div className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-medium mb-4">
+            {data.shortName && (
+              <span className="font-display text-pink-600">{data.shortName}</span>
+            )}
+            <time className="text-gray-500">{formattedDate}</time>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+            {data.title}
+          </h1>
+        </header>
         <div
-          className="markdown markdown-content bg-white p-6 rounded-lg text-gray-900"
+          className="markdown markdown-content bg-white p-6 sm:p-10 rounded-lg text-gray-900 shadow-sm"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </main>
-
       <BackToTopButton />
     </div>
   );
