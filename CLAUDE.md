@@ -22,7 +22,7 @@ Before marking a non-trivial task done, run `npm run lint && npm run build` (or 
 ## Content
 
 - Posts live in `src/content/posts/*.md`. Filename is the slug (e.g., `2026-03-16.md` → `/posts/2026-03-16`).
-- Required frontmatter: `title`, `date` (ISO `YYYY-MM-DD` **string**, not a YAML date), `shortName` (dash-joined label shown on post cards, e.g. `HSBC-Shopping`). `excerpt` is used by the RSS generator but not the UI.
+- Required frontmatter: `title`, `date` (ISO `YYYY-MM-DD` **string**, not a YAML date). `excerpt` is used by the RSS generator but not the UI.
 - `date` must be a string — bare `2026-03-16` gets parsed into a `Date` object by gray-matter and breaks JSON serialization during static export. Quote it: `date: "2026-03-16"`.
 - Post content is typically written in Chinese; match the existing voice when editing.
 - Use `/new-post` to scaffold a post with the right frontmatter.

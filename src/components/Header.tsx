@@ -24,9 +24,9 @@ export default function Header({ className = "" }: { className?: string }) {
         <div className="flex items-center h-16 justify-between">
           <Link
             href="/"
-            className="font-display text-2xl font-medium tracking-tight text-gray-900 hover:text-pink-600 transition-colors"
+            className="text-2xl font-medium tracking-tight text-pink-600 hover:text-pink-800 transition-colors"
           >
-            impower<span className="text-pink-600">&#39;</span>blogs
+            impower<span>&#39;</span>blogs
           </Link>
 
           <nav className="hidden md:flex space-x-2 items-center">

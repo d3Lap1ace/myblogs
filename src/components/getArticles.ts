@@ -6,7 +6,6 @@ export interface ArticleMeta {
   slug: string;
   title: string;
   date: string;
-  shortName?: string;
 }
 
 export function getArticles(): ArticleMeta[] {
@@ -24,7 +23,6 @@ export function getArticles(): ArticleMeta[] {
         slug: filename.replace(/\.md$/, ""),
         title: data.title,
         date,
-        shortName: data.shortName,
       };
     });
 

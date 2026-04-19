@@ -28,20 +28,13 @@ export default function ArticleList({ articles, pageSize = 10 }: ArticleListProp
         {shown.map((article) => (
           <li key={article.slug} className="group">
             <Link href={`/posts/${article.slug}`} className="block py-5">
-              <div className="flex items-center justify-between mb-2 text-xs uppercase tracking-[0.15em] font-medium">
-                {article.shortName ? (
-                  <span className="font-display text-pink-600">
-                    {article.shortName}
-                  </span>
-                ) : (
-                  <span />
-                )}
-                {article.date && (
+              {article.date && (
+                <div className="flex items-center justify-end mb-2 text-xs uppercase tracking-[0.15em] font-medium">
                   <time className="font-display text-gray-400 shrink-0">
                     {formatDate(article.date)}
                   </time>
-                )}
-              </div>
+                </div>
+              )}
               <h3 className="text-xl sm:text-2xl font-medium text-gray-900 leading-snug group-hover:text-pink-600 transition-colors">
                 {article.title}
               </h3>

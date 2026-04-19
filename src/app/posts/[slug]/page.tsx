@@ -52,12 +52,9 @@ export default async function ArticlePage({
   return (
     <div className="bg-[#f7f9fc] min-h-screen">
       <Header />
-      <main className="max-w-3xl mx-auto pt-16 sm:pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="max-w-4xl mx-auto pt-16 sm:pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <header className="mb-12">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-medium mb-4">
-            {data.shortName && (
-              <span className="font-display text-pink-600">{data.shortName}</span>
-            )}
             <time className="text-gray-500">{formattedDate}</time>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
