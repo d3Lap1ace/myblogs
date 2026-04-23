@@ -3,9 +3,9 @@ import IntroCard from "@/components/IntroCard";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#f7f9fc]">
+    <div className="min-h-screen bg-white">
       <Header />
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <main className="max-w-[720px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <IntroCard />
       </main>
     </div>

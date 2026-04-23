@@ -18,7 +18,7 @@ export default function Header({ className = "" }: { className?: string }) {
 
   return (
     <header
-      className={`bg-white/80 backdrop-blur border-b border-gray-200 sticky top-0 z-20 ${className}`}
+      className={`bg-white/80 backdrop-blur border-b border-[rgba(0,0,0,0.08)] sticky top-0 z-20 ${className}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center h-16 justify-between">
@@ -92,7 +92,7 @@ export default function Header({ className = "" }: { className?: string }) {
 
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-[rgba(0,0,0,0.08)]">
               {navItems.map((item) => {
                 const isActive = item.match(pathname);
                 return (

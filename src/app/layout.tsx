@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
+import { Inter, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 import "highlight.js/styles/github.css";
 import Footer from "@/components/Footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -30,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jetbrainsMono.variable} ${notoSansSc.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${notoSansSc.variable}`}
     >
       <body className="antialiased min-h-screen flex flex-col">
         <div className="flex-1 flex flex-col">{children}</div>

@@ -24,9 +24,9 @@ const links = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-gray-200 bg-[#f7f9fc]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-medium">
+    <footer className="border-t border-[rgba(0,0,0,0.08)] bg-white">
+      <div className="max-w-[720px] mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-[rgba(0,0,0,0.55)] font-medium">
           &copy; {year} Lucas Marinotta
         </p>
         <ul className="flex items-center gap-6">
@@ -37,7 +37,7 @@ export default function Footer() {
                 aria-label={label}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-pink-600 transition-colors"
+                className="inline-flex items-center gap-2 text-[rgba(0,0,0,0.55)] hover:text-pink-600 transition-colors"
               >
                 <Icon className="w-4 h-4" />
                 <span className="text-sm font-medium">{label}</span>

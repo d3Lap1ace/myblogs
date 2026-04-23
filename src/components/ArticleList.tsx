@@ -24,18 +24,18 @@ export default function ArticleList({ articles, pageSize = 10 }: ArticleListProp
 
   return (
     <section>
-      <ul className="divide-y divide-gray-200">
+      <ul className="divide-y divide-[rgba(0,0,0,0.08)]">
         {shown.map((article) => (
           <li key={article.slug} className="group">
             <Link href={`/posts/${article.slug}`} className="block py-5">
               {article.date && (
                 <div className="flex items-center justify-end mb-2 text-xs uppercase tracking-[0.15em] font-medium">
-                  <time className="font-display text-gray-400 shrink-0">
+                  <time className="text-[rgba(0,0,0,0.55)] shrink-0">
                     {formatDate(article.date)}
                   </time>
                 </div>
               )}
-              <h3 className="text-xl sm:text-2xl font-medium text-gray-900 leading-snug group-hover:text-pink-600 transition-colors">
+              <h3 className="text-xl sm:text-2xl font-medium text-[#15171a] leading-snug group-hover:text-pink-600 transition-colors">
                 {article.title}
               </h3>
             </Link>
@@ -48,7 +48,7 @@ export default function ArticleList({ articles, pageSize = 10 }: ArticleListProp
           <button
             type="button"
             onClick={() => setVisible((v) => v + pageSize)}
-            className="font-display text-sm tracking-[0.15em] uppercase text-pink-600 hover:text-pink-800 border border-pink-300 hover:border-pink-600 rounded px-6 py-2 transition-colors"
+            className="text-sm tracking-[0.15em] uppercase text-pink-600 hover:text-pink-800 border border-pink-300 hover:border-pink-600 rounded px-6 py-2 transition-colors"
           >
             $ load --more
           </button>

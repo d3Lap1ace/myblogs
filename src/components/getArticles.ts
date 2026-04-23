@@ -20,7 +20,7 @@ export function getArticles(): ArticleMeta[] {
       const { data } = matter(fs.readFileSync(filePath, "utf8"));
       const date = data.date instanceof Date ? data.date.toISOString() : data.date;
       return {
-        slug: filename.replace(/\.md$/, ""),
+        slug: filename.replace(/^\d+\./, "").replace(/\.md$/, ""),
         title: data.title,
         date,
       };
