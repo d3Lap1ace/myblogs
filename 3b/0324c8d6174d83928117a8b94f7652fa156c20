@@ -1,0 +1,41 @@
+src/app/page.tsx
+  6786c65cbb8c718f 9,11-12
+src/components/Footer.tsx
+  6786c65cbb8c718f 27-29,40
+src/app/layout.tsx
+  6786c65cbb8c718f 2,7-12,39
+src/components/IntroCard.tsx
+  6786c65cbb8c718f 15,18,21,25
+src/components/getArticles.ts
+  6786c65cbb8c718f 23
+src/app/globals.css
+  6786c65cbb8c718f 5-11,23-34,38,40,43-45,47,50,56,65,67-68,72-76,81,84-86,97,102-106,110-111
+src/app/posts/[slug]/page.tsx
+  6786c65cbb8c718f 14-21,27,38-39,41,62,64,67,69,74
+src/app/about/page.tsx
+  6786c65cbb8c718f 6,8
+src/components/Header.tsx
+  6786c65cbb8c718f 21,95
+src/components/ArticleList.tsx
+  6786c65cbb8c718f 27,33,38,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "3b0324c8d6174d83928117a8b94f7652fa156c20",
+  "prompts": {
+    "6786c65cbb8c718f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68ccd3c4-3725-49f5-b0b3-6b865346ff7e",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "lvhang",
+      "messages": [],
+      "total_additions": 95,
+      "total_deletions": 73,
+      "accepted_lines": 93,
+      "overriden_lines": 0
+    }
+  }
+}
