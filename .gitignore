@@ -43,4 +43,5 @@ next-env.d.ts
 
 # claude code (user-local overrides)
 .claude/settings.local.json
+.claude/skills/
 CLAUDE.md
