@@ -29,7 +29,7 @@ export default function ArticleList({ articles, pageSize = 10 }: ArticleListProp
           <li key={article.slug} className="group">
             <Link href={`/posts/${article.slug}`} className="block py-5">
               {article.date && (
-                <div className="flex items-center justify-end mb-2 text-xs uppercase tracking-[0.15em] font-medium">
+                <div className="flex items-center justify-start mb-2 text-xs uppercase tracking-[0.15em] font-medium">
                   <time className="text-[rgba(0,0,0,0.55)] shrink-0">
                     {formatDate(article.date)}
                   </time>
